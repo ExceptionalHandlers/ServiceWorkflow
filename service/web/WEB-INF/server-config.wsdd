@@ -42,13 +42,13 @@
         <parameter name="scope" value="Application" />
         <parameter name="className" value="org.apache.axis.monitor.SOAPMonitorService" />
     </service>
-
-    <service name="SquareMatrixValidator" provider="java:RPC" style="document" use="literal">
+    <service name="SquareMatrixValidator" provider="java:RPC" style="wrapped" use="encoded">
         <parameter name="className" value="edu.memphis.ehands.SquareMatrixValidator" />
         <parameter name="allowedMethods" value="*" />
         <parameter name="scope" value="Application" />
         <namespace>http://ehands.memphis.edu</namespace>
     </service>
+
     <handler name="soapmonitor" type="java:org.apache.axis.handlers.SOAPMonitorHandler">
         <parameter name="wsdlURL" value="/axis/SOAPMonitorService-impl.wsdl" />
         <parameter name="serviceName" value="SOAPMonitorService" />

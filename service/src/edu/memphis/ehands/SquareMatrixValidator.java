@@ -5,6 +5,7 @@ import javax.jws.WebService;
 
 @WebService public class SquareMatrixValidator {
 
+
     @WebMethod public boolean validateMatrix(double[][] matrix) {
         int rows = matrix.length;
 

@@ -2,3 +2,6 @@
 service/.idea/
 service/out/
 service/.DS_Store
+out/
+otherservice/.idea/
+jaxclient/.idea/

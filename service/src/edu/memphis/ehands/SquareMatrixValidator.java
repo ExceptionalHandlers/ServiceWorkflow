@@ -3,14 +3,15 @@ package edu.memphis.ehands;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import edu.memphis.ehands.data.Matrix;
+
 @WebService public class SquareMatrixValidator {
 
-
-    @WebMethod public boolean validateMatrix(double[][] matrix) {
-        int rows = matrix.length;
+    @WebMethod public boolean validateMatrix(Matrix matrix) {
+        int rows = matrix.data.length;
 
         for (int i = 0; i < rows; i++) {
-            if (matrix[i].length != rows) {
+            if (matrix.data[i].length != rows) {
                 return false;
             }
         }

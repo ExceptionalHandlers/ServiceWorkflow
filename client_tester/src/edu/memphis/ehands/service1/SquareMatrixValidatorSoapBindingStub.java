@@ -5,9 +5,10 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package edu.memphis.ehands;
+package edu.memphis.ehands.service1;
 
-public class SquareMatrixValidatorSoapBindingStub extends org.apache.axis.client.Stub implements edu.memphis.ehands.SquareMatrixValidator_PortType {
+public class SquareMatrixValidatorSoapBindingStub extends org.apache.axis.client.Stub implements
+        SquareMatrixValidator_PortType {
     private java.util.Vector cachedSerClasses = new java.util.Vector();
     private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();
@@ -29,7 +30,7 @@ public class SquareMatrixValidatorSoapBindingStub extends org.apache.axis.client
         param.setItemQName(new javax.xml.namespace.QName("http://ehands.memphis.edu", "matrix"));
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://ehands.memphis.edu", ">validateMatrixResponse"));
-        oper.setReturnClass(edu.memphis.ehands.ValidateMatrixResponse.class);
+        oper.setReturnClass(ValidateMatrixResponse.class);
         oper.setReturnQName(new javax.xml.namespace.QName("http://ehands.memphis.edu", "validateMatrixResponse"));
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
@@ -77,7 +78,7 @@ public class SquareMatrixValidatorSoapBindingStub extends org.apache.axis.client
 
             qName = new javax.xml.namespace.QName("http://ehands.memphis.edu", ">validateMatrixResponse");
             cachedSerQNames.add(qName);
-            cls = edu.memphis.ehands.ValidateMatrixResponse.class;
+            cls = ValidateMatrixResponse.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -158,7 +159,7 @@ public class SquareMatrixValidatorSoapBindingStub extends org.apache.axis.client
         }
     }
 
-    public edu.memphis.ehands.ValidateMatrixResponse validateMatrix(double[][] parameters) throws java.rmi.RemoteException {
+    public ValidateMatrixResponse validateMatrix(double[][] parameters) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -179,9 +180,9 @@ public class SquareMatrixValidatorSoapBindingStub extends org.apache.axis.client
         else {
             extractAttachments(_call);
             try {
-                return (edu.memphis.ehands.ValidateMatrixResponse) _resp;
+                return (ValidateMatrixResponse) _resp;
             } catch (java.lang.Exception _exception) {
-                return (edu.memphis.ehands.ValidateMatrixResponse) org.apache.axis.utils.JavaUtils.convert(_resp, edu.memphis.ehands.ValidateMatrixResponse.class);
+                return (ValidateMatrixResponse) org.apache.axis.utils.JavaUtils.convert(_resp, ValidateMatrixResponse.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {

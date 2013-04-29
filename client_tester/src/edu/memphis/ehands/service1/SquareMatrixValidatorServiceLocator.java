@@ -5,9 +5,10 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package edu.memphis.ehands;
+package edu.memphis.ehands.service1;
 
-public class SquareMatrixValidatorServiceLocator extends org.apache.axis.client.Service implements edu.memphis.ehands.SquareMatrixValidatorService {
+public class SquareMatrixValidatorServiceLocator extends org.apache.axis.client.Service implements
+        SquareMatrixValidatorService {
 
     public SquareMatrixValidatorServiceLocator() {
     }
@@ -39,7 +40,7 @@ public class SquareMatrixValidatorServiceLocator extends org.apache.axis.client.
         SquareMatrixValidatorWSDDServiceName = name;
     }
 
-    public edu.memphis.ehands.SquareMatrixValidator_PortType getSquareMatrixValidator() throws javax.xml.rpc.ServiceException {
+    public SquareMatrixValidator_PortType getSquareMatrixValidator() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
             endpoint = new java.net.URL(SquareMatrixValidator_address);
@@ -50,9 +51,9 @@ public class SquareMatrixValidatorServiceLocator extends org.apache.axis.client.
         return getSquareMatrixValidator(endpoint);
     }
 
-    public edu.memphis.ehands.SquareMatrixValidator_PortType getSquareMatrixValidator(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public SquareMatrixValidator_PortType getSquareMatrixValidator(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            edu.memphis.ehands.SquareMatrixValidatorSoapBindingStub _stub = new edu.memphis.ehands.SquareMatrixValidatorSoapBindingStub(portAddress, this);
+            SquareMatrixValidatorSoapBindingStub _stub = new SquareMatrixValidatorSoapBindingStub(portAddress, this);
             _stub.setPortName(getSquareMatrixValidatorWSDDServiceName());
             return _stub;
         }
@@ -72,8 +73,8 @@ public class SquareMatrixValidatorServiceLocator extends org.apache.axis.client.
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (edu.memphis.ehands.SquareMatrixValidator_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
-                edu.memphis.ehands.SquareMatrixValidatorSoapBindingStub _stub = new edu.memphis.ehands.SquareMatrixValidatorSoapBindingStub(new java.net.URL(SquareMatrixValidator_address), this);
+            if (SquareMatrixValidator_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
+                SquareMatrixValidatorSoapBindingStub _stub = new SquareMatrixValidatorSoapBindingStub(new java.net.URL(SquareMatrixValidator_address), this);
                 _stub.setPortName(getSquareMatrixValidatorWSDDServiceName());
                 return _stub;
             }

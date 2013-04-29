@@ -5,8 +5,8 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package edu.memphis.ehands;
+package edu.memphis.ehands.service1;
 
 public interface SquareMatrixValidator_PortType extends java.rmi.Remote {
-    public edu.memphis.ehands.ValidateMatrixResponse validateMatrix(double[][] parameters) throws java.rmi.RemoteException;
+    public ValidateMatrixResponse validateMatrix(double[][] parameters) throws java.rmi.RemoteException;
 }

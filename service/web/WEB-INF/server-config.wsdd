@@ -42,11 +42,43 @@
         <parameter name="scope" value="Application" />
         <parameter name="className" value="org.apache.axis.monitor.SOAPMonitorService" />
     </service>
-    <service name="SquareMatrixValidator" provider="java:RPC" style="wrapped" use="encoded">
+    <service name="DeterminantCalc" provider="java:RPC" style="document" use="literal">
+        <parameter name="className" value="edu.memphis.ehands.DeterminantCalc" />
+        <parameter name="allowedMethods" value="*" />
+        <parameter name="scope" value="Application" />
+        <namespace>http://ehands.memphis.edu</namespace>
+        <typeMapping qname="ns:Determinant" xmlns:ns="http://ehands.memphis.edu"
+                     languageSpecificType="java:edu.memphis.ehands.data.Determinant"
+                     serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                     deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        <typeMapping qname="ns:ReducedMatrices" xmlns:ns="http://ehands.memphis.edu"
+                     languageSpecificType="java:edu.memphis.ehands.data.ReducedMatrices"
+                     serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                     deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        <typeMapping qname="ns:Matrix" xmlns:ns="http://ehands.memphis.edu"
+                     languageSpecificType="java:edu.memphis.ehands.data.Matrix"
+                     serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                     deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+    </service>
+    <service name="RowReduction" provider="java:RPC" style="document" use="literal">
+        <parameter name="className" value="edu.memphis.ehands.RowReduction" />
+        <parameter name="allowedMethods" value="*" />
+        <parameter name="scope" value="Application" />
+        <namespace>http://ehands.memphis.edu</namespace>
+    </service>
+    <service name="SquareMatrixValidator" provider="java:RPC" style="document" use="literal">
         <parameter name="className" value="edu.memphis.ehands.SquareMatrixValidator" />
         <parameter name="allowedMethods" value="*" />
         <parameter name="scope" value="Application" />
         <namespace>http://ehands.memphis.edu</namespace>
+        <typeMapping qname="ns:Matrix" xmlns:ns="http://ehands.memphis.edu"
+                     languageSpecificType="java:edu.memphis.ehands.data.Matrix"
+                     serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                     deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
     </service>
 
     <handler name="soapmonitor" type="java:org.apache.axis.handlers.SOAPMonitorHandler">

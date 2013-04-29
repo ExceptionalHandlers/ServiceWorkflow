@@ -5,7 +5,7 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package edu.memphis.ehands;
+package edu.memphis.ehands.service1;
 
 public class ValidateMatrixResponse  implements java.io.Serializable {
     private boolean validateMatrixReturn;

@@ -1,4 +1,4 @@
-package edu.memphis.ehands;
+package edu.memphis.ehands.service1;
 
 public class ValidTester {
     public static void main(String[] argv) {

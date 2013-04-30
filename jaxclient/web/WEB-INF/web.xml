@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+
+    <servlet>
+        <servlet-name>Workflow</servlet-name>
+        <servlet-class>edu.memphis.ehands.controller.WorkflowServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Workflow</servlet-name>
+        <url-pattern>/workflow</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+

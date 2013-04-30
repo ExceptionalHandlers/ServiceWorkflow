@@ -35,27 +35,29 @@ public class WorkflowServlet extends HttpServlet {
 
         Object foo = null;
 
-        foo = (String) "3,8|4,6";
-
+        String matrix = request.getParameter("matrix");
+        if (matrix != null && !matrix.isEmpty()) {
+            System.out.println("using custom matrix: " + matrix);
+            foo = matrix;
+        } else {
+            foo = (String) "3,8|4,6";
+        }
         for (String service : split) {
-            response.getWriter().println("running service: " + service);
             foo = runService(foo, service);
         }
-
         // if all goes well... this should be our determinant
-
         try {
-            response.getWriter().println("foo: " + foo.toString());
-
-            Double determinant = (Double) foo;
+            Double determinant = Math.abs((Double) foo);
             if (determinant == null) {
                 response.getWriter().println("null det");
-
+            } else {
+                request.setAttribute("determinant",
+                        Math.abs(Double.valueOf(determinant.toString())));
             }
-            response.getWriter().println("Determinant: " + determinant.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request,

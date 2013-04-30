@@ -139,7 +139,9 @@
     <title>Workflow</title>
 </head>
 <body>
+<a href="<%=baseURL%>/workflow">Workflow</a>
 <div class="debug"></div>
+
 <div id="container">
     <div id="left">
         <div id="services">
@@ -160,13 +162,28 @@
 
     </div>
 
+    <br/>
+    <br/>
+    <br style="clear: both;"/>
+
+    <form name="input" action="<%=baseURL%>/workflow" method="post">
+        <input type="text" name="matrix" id="matrix" value="3,8|4,6" />
+        <input type="hidden" name="workflowlist" id="hiddenelement"/>
+        <input type="submit" id="submitgo" value="Submit">
+    </form>
+
+    <br/>
+
+    <div id="result">
+        <% String det = (String) request.getAttribute("determinant");
+            if (det == null || det.isEmpty()) {
+                det = "Submit a workflow to see a result here";
+            }
+        %>
+
+        <%=det%></div>
 
 </div>
-<br style="clear: both;"/>
-<form name="input" action="<%=baseURL%>/workflowpost" method="post">
-    <input type="hidden" name="workflowlist" id="hiddenelement" />
-    <input type="submit" id="submitgo" value="Submit">
-</form>
 
 </body>
 </html>

@@ -42,16 +42,13 @@ public class SquareMatrixValidatorService
         super(__getWsdlLocation(), SQUAREMATRIXVALIDATORSERVICE_QNAME);
     }
 
-
     public SquareMatrixValidatorService(URL wsdlLocation) {
         super(wsdlLocation, SQUAREMATRIXVALIDATORSERVICE_QNAME);
     }
 
-
     public SquareMatrixValidatorService(URL wsdlLocation, QName serviceName) {
         super(wsdlLocation, serviceName);
     }
-
 
     /**
      * 

@@ -24,14 +24,38 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CalculateDetResponse_QNAME = new QName("http://ehands.memphis.edu/", "calculateDetResponse");
-    private final static QName _CalculateDet_QNAME = new QName("http://ehands.memphis.edu/", "calculateDet");
+    private final static QName _Validate_QNAME = new QName("http://ehands.memphis.edu/", "validate");
+    private final static QName _ValidateResponse_QNAME = new QName("http://ehands.memphis.edu/", "validateResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: edu.memphis.ehands
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link ValidateResponse }
+     * 
+     */
+    public ValidateResponse createValidateResponse() {
+        return new ValidateResponse();
+    }
+
+    /**
+     * Create an instance of {@link Validate }
+     * 
+     */
+    public Validate createValidate() {
+        return new Validate();
+    }
+
+    /**
+     * Create an instance of {@link Matrix }
+     * 
+     */
+    public Matrix createMatrix() {
+        return new Matrix();
     }
 
     /**
@@ -43,45 +67,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CalculateDet }
+     * Create an instance of {@link JAXBElement }{@code <}{@link Validate }{@code >}}
      * 
      */
-    public CalculateDet createCalculateDet() {
-        return new CalculateDet();
+    @XmlElementDecl(namespace = "http://ehands.memphis.edu/", name = "validate")
+    public JAXBElement<Validate> createValidate(Validate value) {
+        return new JAXBElement<Validate>(_Validate_QNAME, Validate.class, null, value);
     }
 
     /**
-     * Create an instance of {@link CalculateDetResponse }
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidateResponse }{@code >}}
      * 
      */
-    public CalculateDetResponse createCalculateDetResponse() {
-        return new CalculateDetResponse();
-    }
-
-    /**
-     * Create an instance of {@link DecomposedMatrix }
-     * 
-     */
-    public DecomposedMatrix createDecomposedMatrix() {
-        return new DecomposedMatrix();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CalculateDetResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ehands.memphis.edu/", name = "calculateDetResponse")
-    public JAXBElement<CalculateDetResponse> createCalculateDetResponse(CalculateDetResponse value) {
-        return new JAXBElement<CalculateDetResponse>(_CalculateDetResponse_QNAME, CalculateDetResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CalculateDet }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ehands.memphis.edu/", name = "calculateDet")
-    public JAXBElement<CalculateDet> createCalculateDet(CalculateDet value) {
-        return new JAXBElement<CalculateDet>(_CalculateDet_QNAME, CalculateDet.class, null, value);
+    @XmlElementDecl(namespace = "http://ehands.memphis.edu/", name = "validateResponse")
+    public JAXBElement<ValidateResponse> createValidateResponse(ValidateResponse value) {
+        return new JAXBElement<ValidateResponse>(_ValidateResponse_QNAME, ValidateResponse.class, null, value);
     }
 
 }

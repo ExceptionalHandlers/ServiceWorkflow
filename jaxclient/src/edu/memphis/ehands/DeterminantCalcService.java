@@ -42,16 +42,13 @@ public class DeterminantCalcService
         super(__getWsdlLocation(), DETERMINANTCALCSERVICE_QNAME);
     }
 
-
     public DeterminantCalcService(URL wsdlLocation) {
         super(wsdlLocation, DETERMINANTCALCSERVICE_QNAME);
     }
 
-
     public DeterminantCalcService(URL wsdlLocation, QName serviceName) {
         super(wsdlLocation, serviceName);
     }
-
 
     /**
      * 

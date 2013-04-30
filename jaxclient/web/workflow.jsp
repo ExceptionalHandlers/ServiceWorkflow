@@ -30,10 +30,12 @@
             var ws = [];
 
             <%
+
             List<DService> ws = (List<DService>) request.getAttribute("ws_list");
             for (int i = 0; i < ws.size(); i++) {
                 DService service = ws.get(i);
                 %>
+
                 ws[<%=i%>] = {
                     name: "<%=service.name%>",
                     input: "<%=service.input%>",
@@ -149,7 +151,8 @@
         <div id='pipeline'>
             <div id="snap">&nbsp;</div>
         </div>
-        <button onclick="submitWorklow()">Submit workflow</button>
+
+        <button onclick="submitWorkflow()">Submit workflow</button>
     </div>
 </div>
 </body>

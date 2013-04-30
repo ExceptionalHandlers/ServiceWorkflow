@@ -11,5 +11,10 @@
         <url-pattern>/workflow</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>Workflow</servlet-name>
+        <url-pattern>/workflowpost</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 

@@ -29,23 +29,30 @@ public class WorkflowServlet extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-        String[] split = request.getAttribute("workflowlist").toString().split(",");
+        String workflowlist = request.getParameter("workflowlist");
+        response.getWriter().println(workflowlist);
+        String[] split = workflowlist.toString().split(",");
 
         Object foo = null;
 
+        foo = (String) "3,8|4,6";
+
         for (String service : split) {
-            if (service.isEmpty()) {
-                // ew
-                continue;
-            }
+            response.getWriter().println("running service: " + service);
             foo = runService(foo, service);
         }
 
         // if all goes well... this should be our determinant
 
         try {
+            response.getWriter().println("foo: " + foo.toString());
+
             Double determinant = (Double) foo;
-            response.getWriter().println("Determinant: " + determinant);
+            if (determinant == null) {
+                response.getWriter().println("null det");
+
+            }
+            response.getWriter().println("Determinant: " + determinant.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -52,7 +52,7 @@ public class WorkflowServlet extends HttpServlet {
                 response.getWriter().println("null det");
             } else {
                 request.setAttribute("determinant",
-                        Math.abs(Double.valueOf(determinant.toString())));
+                        determinant.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();

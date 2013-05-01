@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="exceptionalhandlers" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.orig/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.ane"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.javaee.classpath">
+    <pathelement location="${basedir}/lib/javax.ejb.jar"/>
+    <pathelement location="${basedir}/lib/javax.jms.jar"/>
+    <pathelement location="${basedir}/lib/javax.persistence.jar"/>
+    <pathelement location="${basedir}/lib/javax.resource.jar"/>
+    <pathelement location="${basedir}/lib/javax.servlet.jar"/>
+    <pathelement location="${basedir}/lib/javax.servlet.jsp.jar"/>
+    <pathelement location="${basedir}/lib/javax.servlet.jsp.jstl.jar"/>
+    <pathelement location="${basedir}/lib/javax.transaction.jar"/>
+  </path>
+  
+  <path id="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath">
+    <pathelement location="${basedir}/lib/FastInoset.jar"/>
+    <pathelement location="${basedir}/lib/gmbal-api-only.jar"/>
+    <pathelement location="${basedir}/lib/ha-api.jar"/>
+    <pathelement location="${basedir}/lib/javax.annotation.jar"/>
+    <pathelement location="${basedir}/lib/jaxb-api.jar"/>
+    <pathelement location="${basedir}/lib/jaxb-impl.jar"/>
+    <pathelement location="${basedir}/lib/jaxb-xjc.jar"/>
+    <pathelement location="${basedir}/lib/jaxws-api.jar"/>
+    <pathelement location="${basedir}/lib/jaxws-rt.jar"/>
+    <pathelement location="${basedir}/lib/jaxws-tools.jar"/>
+    <pathelement location="${basedir}/lib/jsr181-api.jar"/>
+    <pathelement location="${basedir}/lib/mail.jar"/>
+    <pathelement location="${basedir}/lib/management-api.jar"/>
+    <pathelement location="${basedir}/lib/mimepull.jar"/>
+    <pathelement location="${basedir}/lib/policy.jar"/>
+    <pathelement location="${basedir}/lib/saaj-api.jar"/>
+    <pathelement location="${basedir}/lib/saaj-impl.jar"/>
+    <pathelement location="${basedir}/lib/stax-ex.jar"/>
+    <pathelement location="${basedir}/lib/stax2-api.jar"/>
+    <pathelement location="${basedir}/lib/streambuffer.jar"/>
+    <pathelement location="${basedir}/lib/woodstox-core-asl.jar"/>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module jaxclient -->
+  
+  <dirname property="module.jaxclient.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.jaxclient" value="${compiler.args}"/>
+  
+  <property name="jaxclient.output.dir" value="${module.jaxclient.basedir}/out/production/jaxclient"/>
+  <property name="jaxclient.testoutput.dir" value="${module.jaxclient.basedir}/out/test/jaxclient"/>
+  
+  <path id="jaxclient.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="jaxclient.module.production.classpath">
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.javaee.classpath"/>
+  </path>
+  
+  <path id="jaxclient.runtime.production.module.classpath">
+    <pathelement location="${jaxclient.output.dir}"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.javaee.classpath"/>
+  </path>
+  
+  <path id="jaxclient.module.classpath">
+    <pathelement location="${jaxclient.output.dir}"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.javaee.classpath"/>
+  </path>
+  
+  <path id="jaxclient.runtime.module.classpath">
+    <pathelement location="${jaxclient.testoutput.dir}"/>
+    <pathelement location="${jaxclient.output.dir}"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.javaee.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.jaxclient">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.jaxclient">
+    <patternset refid="excluded.from.module.jaxclient"/>
+  </patternset>
+  
+  <path id="jaxclient.module.sourcepath">
+    <dirset dir="${module.jaxclient.basedir}/jaxclient">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.jaxclient" depends="compile.module.jaxclient.production,compile.module.jaxclient.tests" description="Compile module jaxclient"/>
+  
+  <target name="compile.module.jaxclient.production" description="Compile module jaxclient; production classes">
+    <mkdir dir="${jaxclient.output.dir}"/>
+    <javac destdir="${jaxclient.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.jaxclient}"/>
+      <bootclasspath refid="jaxclient.module.bootclasspath"/>
+      <classpath refid="jaxclient.module.production.classpath"/>
+      <src refid="jaxclient.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jaxclient"/>
+    </javac>
+    
+    <copy todir="${jaxclient.output.dir}">
+      <fileset dir="${module.jaxclient.basedir}/jaxclient/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.jaxclient.tests" depends="compile.module.jaxclient.production" description="compile module jaxclient; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.jaxclient" description="cleanup module">
+    <delete dir="${jaxclient.output.dir}"/>
+    <delete dir="${jaxclient.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module otherservice -->
+  
+  <dirname property="module.otherservice.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.otherservice" value="${compiler.args}"/>
+  
+  <property name="otherservice.output.dir" value="${module.otherservice.basedir}/out/production/otherservice"/>
+  <property name="otherservice.testoutput.dir" value="${module.otherservice.basedir}/out/test/otherservice"/>
+  
+  <path id="otherservice.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="otherservice.module.production.classpath">
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.javaee.classpath"/>
+  </path>
+  
+  <path id="otherservice.runtime.production.module.classpath">
+    <pathelement location="${otherservice.output.dir}"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.javaee.classpath"/>
+  </path>
+  
+  <path id="otherservice.module.classpath">
+    <pathelement location="${otherservice.output.dir}"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.javaee.classpath"/>
+  </path>
+  
+  <path id="otherservice.runtime.module.classpath">
+    <pathelement location="${otherservice.testoutput.dir}"/>
+    <pathelement location="${otherservice.output.dir}"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.javaee.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.otherservice">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.otherservice">
+    <patternset refid="excluded.from.module.otherservice"/>
+  </patternset>
+  
+  <path id="otherservice.module.sourcepath">
+    <dirset dir="${module.otherservice.basedir}/otherservice">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.otherservice" depends="compile.module.otherservice.production,compile.module.otherservice.tests" description="Compile module otherservice"/>
+  
+  <target name="compile.module.otherservice.production" description="Compile module otherservice; production classes">
+    <mkdir dir="${otherservice.output.dir}"/>
+    <javac destdir="${otherservice.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.otherservice}"/>
+      <bootclasspath refid="otherservice.module.bootclasspath"/>
+      <classpath refid="otherservice.module.production.classpath"/>
+      <src refid="otherservice.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.otherservice"/>
+    </javac>
+    
+    <copy todir="${otherservice.output.dir}">
+      <fileset dir="${module.otherservice.basedir}/otherservice/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.otherservice.tests" depends="compile.module.otherservice.production" description="compile module otherservice; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.otherservice" description="cleanup module">
+    <delete dir="${otherservice.output.dir}"/>
+    <delete dir="${otherservice.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.jaxclient, clean.module.otherservice, clean.artifact.client, clean.artifact.services" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.jaxclient, compile.module.otherservice" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.client" value="${basedir}/out/artifacts/client"/>
+    <property name="artifact.output.services" value="${basedir}/out/artifacts/services"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="clean.artifact.client" description="clean client artifact output">
+    <delete dir="${artifact.output.client}"/>
+  </target>
+  
+  <target name="clean.artifact.services" description="clean services artifact output">
+    <delete dir="${artifact.output.services}"/>
+  </target>
+  
+  <target name="artifact.client" depends="init.artifacts, compile.module.jaxclient" description="Build &#39;client&#39; artifact">
+    <mkdir dir="${artifact.output.client}"/>
+    <mkdir dir="${artifact.output.client}/WEB-INF"/>
+    <mkdir dir="${artifact.output.client}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.client}/WEB-INF/classes">
+      <fileset dir="${jaxclient.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.client}/WEB-INF/lib"/>
+    <copy file="${basedir}/lib/FastInoset.jar" tofile="${artifact.output.client}/WEB-INF/lib/FastInoset.jar"/>
+    <copy file="${basedir}/lib/gmbal-api-only.jar" tofile="${artifact.output.client}/WEB-INF/lib/gmbal-api-only.jar"/>
+    <copy file="${basedir}/lib/ha-api.jar" tofile="${artifact.output.client}/WEB-INF/lib/ha-api.jar"/>
+    <copy file="${basedir}/lib/javax.annotation.jar" tofile="${artifact.output.client}/WEB-INF/lib/javax.annotation.jar"/>
+    <copy file="${basedir}/lib/jaxb-api.jar" tofile="${artifact.output.client}/WEB-INF/lib/jaxb-api.jar"/>
+    <copy file="${basedir}/lib/jaxb-impl.jar" tofile="${artifact.output.client}/WEB-INF/lib/jaxb-impl.jar"/>
+    <copy file="${basedir}/lib/jaxb-xjc.jar" tofile="${artifact.output.client}/WEB-INF/lib/jaxb-xjc.jar"/>
+    <copy file="${basedir}/lib/jaxws-api.jar" tofile="${artifact.output.client}/WEB-INF/lib/jaxws-api.jar"/>
+    <copy file="${basedir}/lib/jaxws-rt.jar" tofile="${artifact.output.client}/WEB-INF/lib/jaxws-rt.jar"/>
+    <copy file="${basedir}/lib/jaxws-tools.jar" tofile="${artifact.output.client}/WEB-INF/lib/jaxws-tools.jar"/>
+    <copy file="${basedir}/lib/jsr181-api.jar" tofile="${artifact.output.client}/WEB-INF/lib/jsr181-api.jar"/>
+    <copy file="${basedir}/lib/mail.jar" tofile="${artifact.output.client}/WEB-INF/lib/mail.jar"/>
+    <copy file="${basedir}/lib/management-api.jar" tofile="${artifact.output.client}/WEB-INF/lib/management-api.jar"/>
+    <copy file="${basedir}/lib/mimepull.jar" tofile="${artifact.output.client}/WEB-INF/lib/mimepull.jar"/>
+    <copy file="${basedir}/lib/policy.jar" tofile="${artifact.output.client}/WEB-INF/lib/policy.jar"/>
+    <copy file="${basedir}/lib/saaj-api.jar" tofile="${artifact.output.client}/WEB-INF/lib/saaj-api.jar"/>
+    <copy file="${basedir}/lib/saaj-impl.jar" tofile="${artifact.output.client}/WEB-INF/lib/saaj-impl.jar"/>
+    <copy file="${basedir}/lib/stax2-api.jar" tofile="${artifact.output.client}/WEB-INF/lib/stax2-api.jar"/>
+    <copy file="${basedir}/lib/stax-ex.jar" tofile="${artifact.output.client}/WEB-INF/lib/stax-ex.jar"/>
+    <copy file="${basedir}/lib/streambuffer.jar" tofile="${artifact.output.client}/WEB-INF/lib/streambuffer.jar"/>
+    <copy file="${basedir}/lib/woodstox-core-asl.jar" tofile="${artifact.output.client}/WEB-INF/lib/woodstox-core-asl.jar"/>
+    <copy todir="${artifact.output.client}">
+      <fileset dir="${basedir}/jaxclient/web"/>
+    </copy>
+    <mkdir dir="${artifact.output.client}/WEB-INF"/>
+    <copy file="${basedir}/jaxclient/web/WEB-INF/web.xml" tofile="${artifact.output.client}/WEB-INF/web.xml"/>
+  </target>
+  
+  <target name="artifact.services" depends="init.artifacts, compile.module.otherservice" description="Build &#39;services&#39; artifact">
+    <mkdir dir="${artifact.output.services}"/>
+    <copy todir="${artifact.output.services}">
+      <fileset dir="${basedir}/otherservice/web"/>
+    </copy>
+    <mkdir dir="${artifact.output.services}/WEB-INF"/>
+    <copy file="${basedir}/otherservice/web/WEB-INF/web.xml" tofile="${artifact.output.services}/WEB-INF/web.xml"/>
+    <mkdir dir="${artifact.output.services}/WEB-INF"/>
+    <mkdir dir="${artifact.output.services}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.services}/WEB-INF/classes">
+      <fileset dir="${otherservice.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.services}/WEB-INF/lib"/>
+    <copy file="${basedir}/lib/FastInoset.jar" tofile="${artifact.output.services}/WEB-INF/lib/FastInoset.jar"/>
+    <copy file="${basedir}/lib/gmbal-api-only.jar" tofile="${artifact.output.services}/WEB-INF/lib/gmbal-api-only.jar"/>
+    <copy file="${basedir}/lib/ha-api.jar" tofile="${artifact.output.services}/WEB-INF/lib/ha-api.jar"/>
+    <copy file="${basedir}/lib/javax.annotation.jar" tofile="${artifact.output.services}/WEB-INF/lib/javax.annotation.jar"/>
+    <copy file="${basedir}/lib/jaxb-api.jar" tofile="${artifact.output.services}/WEB-INF/lib/jaxb-api.jar"/>
+    <copy file="${basedir}/lib/jaxb-impl.jar" tofile="${artifact.output.services}/WEB-INF/lib/jaxb-impl.jar"/>
+    <copy file="${basedir}/lib/jaxb-xjc.jar" tofile="${artifact.output.services}/WEB-INF/lib/jaxb-xjc.jar"/>
+    <copy file="${basedir}/lib/jaxws-api.jar" tofile="${artifact.output.services}/WEB-INF/lib/jaxws-api.jar"/>
+    <copy file="${basedir}/lib/jaxws-rt.jar" tofile="${artifact.output.services}/WEB-INF/lib/jaxws-rt.jar"/>
+    <copy file="${basedir}/lib/jaxws-tools.jar" tofile="${artifact.output.services}/WEB-INF/lib/jaxws-tools.jar"/>
+    <copy file="${basedir}/lib/jsr181-api.jar" tofile="${artifact.output.services}/WEB-INF/lib/jsr181-api.jar"/>
+    <copy file="${basedir}/lib/mail.jar" tofile="${artifact.output.services}/WEB-INF/lib/mail.jar"/>
+    <copy file="${basedir}/lib/management-api.jar" tofile="${artifact.output.services}/WEB-INF/lib/management-api.jar"/>
+    <copy file="${basedir}/lib/mimepull.jar" tofile="${artifact.output.services}/WEB-INF/lib/mimepull.jar"/>
+    <copy file="${basedir}/lib/policy.jar" tofile="${artifact.output.services}/WEB-INF/lib/policy.jar"/>
+    <copy file="${basedir}/lib/saaj-api.jar" tofile="${artifact.output.services}/WEB-INF/lib/saaj-api.jar"/>
+    <copy file="${basedir}/lib/saaj-impl.jar" tofile="${artifact.output.services}/WEB-INF/lib/saaj-impl.jar"/>
+    <copy file="${basedir}/lib/stax2-api.jar" tofile="${artifact.output.services}/WEB-INF/lib/stax2-api.jar"/>
+    <copy file="${basedir}/lib/stax-ex.jar" tofile="${artifact.output.services}/WEB-INF/lib/stax-ex.jar"/>
+    <copy file="${basedir}/lib/streambuffer.jar" tofile="${artifact.output.services}/WEB-INF/lib/streambuffer.jar"/>
+    <copy file="${basedir}/lib/woodstox-core-asl.jar" tofile="${artifact.output.services}/WEB-INF/lib/woodstox-core-asl.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.client, artifact.services" description="Build all artifacts">
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

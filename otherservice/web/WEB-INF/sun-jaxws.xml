@@ -2,13 +2,11 @@
 
 <endpoints xmlns='http://java.sun.com/xml/ns/jax-ws/ri/runtime' version='2.0'>
 
-    <endpoint name='HelloWorld' implementation='example.HelloWorld'
-              url-pattern='/services/HelloWorld' />
     <endpoint name='SquareMatrixValidator'
               implementation='edu.memphis.ehands.SquareMatrixValidator'
-              url-pattern='/services/SquareMatrixValidator' />
+              url-pattern='/SquareMatrixValidator' />
     <endpoint name='LUDecomposer' implementation='edu.memphis.ehands.LUDecomposer'
-              url-pattern='/services/LUDecomposer' />
+              url-pattern='/LUDecomposer' />
     <endpoint name='DeterminantCalc' implementation='edu.memphis.ehands.DeterminantCalc'
-              url-pattern='/services/DeterminantCalc' />
+              url-pattern='/DeterminantCalc' />
 </endpoints>

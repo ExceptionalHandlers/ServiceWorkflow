@@ -42,16 +42,13 @@ public class LUDecomposerService
         super(__getWsdlLocation(), LUDECOMPOSERSERVICE_QNAME);
     }
 
-
     public LUDecomposerService(URL wsdlLocation) {
         super(wsdlLocation, LUDECOMPOSERSERVICE_QNAME);
     }
 
-
     public LUDecomposerService(URL wsdlLocation, QName serviceName) {
         super(wsdlLocation, serviceName);
     }
-
 
     /**
      * 

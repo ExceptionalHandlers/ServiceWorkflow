@@ -5,3 +5,4 @@ service/.DS_Store
 out/
 otherservice/.idea/
 jaxclient/.idea/
+.idea/

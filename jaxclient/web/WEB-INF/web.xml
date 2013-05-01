@@ -8,7 +8,7 @@
 
     <servlet-mapping>
         <servlet-name>Workflow</servlet-name>
-        <url-pattern>/workflow</url-pattern>
+        <url-pattern>/workflow.do</url-pattern>
     </servlet-mapping>
 
 </web-app>

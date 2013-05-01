@@ -166,7 +166,7 @@
     <br/>
     <br style="clear: both;"/>
 
-    <form name="input" action="<%=baseURL%>/workflow" method="post">
+    <form name="input" action="<%=baseURL%>/workflow.do" method="post">
         <input type="text" name="matrix" id="matrix" value="3,8|4,6" />
         <input type="hidden" name="workflowlist" id="hiddenelement"/>
         <input type="submit" id="submitgo" value="Submit">

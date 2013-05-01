@@ -1,9 +1,16 @@
-#Determinant Calculator Service Workflow
+# Webservice Workflow Project
 
 ---
+## Determinant Calculator
+
+The workflow consists of 3 services:
+
+* SquareMatrixValidator
+* LUDecomposer
+* DeterminantCalc
 
 Requirements
--
+---
 * JDK 6
 * Apache Ant  
 *tested with Ant 1.8.2*
@@ -19,16 +26,26 @@ Build instructions
 
 * Start the tomcat server by running `<Tomcat 7 home>/bin/catalina.sh start`
  
-* Open `http://localhost:8080/client/workflow` in a browser to reach the client
- 
-***
+* Open `http://localhost:8080/client/workflow.do` in a browser to reach the client
+
+
+#####Example ( OS X 10.8.2 )
+
+    $ rm -rf out/
+    $ ant
+    $ cp -r out/artifacts/ /Library/Tomcat/apache-tomcat-7.0.39/webapps
+    $ /Library/Tomcat/apache-tomcat-7.0.39/bin/catalina.sh run
+
 
 
 Exception Handlers
 -
+Developed by:
+
 * Roman Birg
-* John Bohne
+* John Bonne
 * Doug Rowell
+ 
 
 ######Spring 2013
 *University of Memphis - COMP 4302*

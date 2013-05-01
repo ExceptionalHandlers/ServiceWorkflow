@@ -27,7 +27,7 @@ Build instructions
 Exception Handlers
 -
 * Roman Birg
-* John Bonne
+* John Bohne
 * Doug Rowell
 
 ######Spring 2013

@@ -26,7 +26,7 @@ Build instructions
 
 * Start the tomcat server by running `<Tomcat 7 home>/bin/catalina.sh start` (Windows: `<Tomcat 7 home>/bin/catalina.bin start`)
  
-* Open `http://localhost:8080/client/workflow` in a browser to reach the client
+* Open `http://localhost:8080/client/workflow.do` in a browser to reach the client
 
 
 #####Example ( OS X 10.8.2 )

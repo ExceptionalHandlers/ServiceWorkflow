@@ -43,7 +43,7 @@ Exception Handlers
 Developed by:
 
 * Roman Birg
-* John Bonne
+* John Bohne
 * Doug Rowell
  
 
